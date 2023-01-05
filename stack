@@ -1,0 +1,64 @@
+package phyton;
+
+import java.util.Scanner;
+
+public class a {
+    static int top = 0;
+    static Scanner sc = new Scanner(System.in);
+    static String data [] = new String [3];
+    public static void main(String[] args) {
+        while(true){
+            System.out.println("1.push");
+            System.out.println("2.poop");
+            System.out.println("3.nilai peek saat ini");
+            System.out.println("4.print array");
+            System.out.print("pilih : ");
+            int pilih = sc.nextInt();
+            if(pilih == 1){
+                push1();
+            }
+            else if(pilih == 2){
+                pop();
+            }
+            else if(pilih == 3){
+                System.out.println("Nilai peek saat ini : "+peek());
+            }
+            else if(pilih == 4){
+                print();
+            }
+
+        }
+    }
+    static void push(String nama){
+        if(top == data.length){
+            System.out.println("Stack penuh");
+        }else{
+             data[top]=nama;
+             top++;
+        }
+       
+    }
+    static void push1(){
+        System.out.print("Nama: ");
+        String a = sc.next();
+        push(a);
+    }
+    static void pop(){
+        if(top == 0){
+            System.out.println("Array kosong ");
+        }else{
+             top--;
+            data[top]=null;
+           
+        }
+        
+    }
+    static String peek(){
+        return data[top-1];
+    }
+    static void print(){
+        for (int i = data.length -1 ; i >= 0; i--) {
+            System.out.println(data[i]+" ");
+        }
+    }
+}
