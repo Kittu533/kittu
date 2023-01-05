@@ -1,0 +1,53 @@
+package phyton;
+
+import java.util.Scanner;
+
+public class q {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+      int angka [] = new int[5];   
+      for (int i = 0; i < angka.length; i++) {
+        System.out.print("angka ke- ");
+        angka[i] = sc.nextInt();
+      }
+      //sebelum sorting
+      for (int i = 0; i < angka.length; i++) {
+        System.out.print(angka[i]+",");
+      }
+      System.out.println("");
+      //asscending
+      sorting(angka);
+      for (int i = 0; i < angka.length; i++) {
+        System.out.print(angka[i]+",");
+      }
+      System.out.println("");
+      //desscending
+      sorting1(angka);
+      for (int i = 0; i < angka.length; i++) {
+        System.out.print(angka[i]+",");
+      }
+    }
+    static void sorting(int angka[]){
+        for (int i = 0; i < angka.length; i++) {
+            for (int j = 0; j < angka.length-1; j++) {
+                if(angka[j]>angka[j+1]){
+                    int temp = angka[j];
+                    angka[j]=angka[j+1];
+                    angka[j+1]=temp;
+                }
+            }
+        }
+    }
+    static void sorting1(int angka[]){
+        for (int i = 0; i < angka.length; i++) {
+            for (int j = 0; j < angka.length-1; j++) {
+                if(angka[j]<angka[j+1]){
+                    int temp = angka[j];
+                    angka[j]=angka[j+1];
+                    angka[j+1]=temp;
+                }
+            }
+        }
+    }
+
+}
