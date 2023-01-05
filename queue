@@ -1,0 +1,63 @@
+package phyton;
+
+import java.util.Scanner;
+
+public class que {
+    static String data[] = new String [3];
+    static int front = 0;
+    static int rear = 0;
+    static int at = 0;
+    static int maks = 3;
+    static Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        while(true){
+            System.out.println("1.enqueue");
+            System.out.println("2.dequeue");
+            System.out.println("3.nilai peek saat ini");
+            System.out.println("4.print array");
+            System.out.print("pilih : ");
+            int pilih = sc.nextInt();
+            if(pilih == 1){
+                enqu();
+            }
+            else if(pilih == 2){
+                dequeue();
+            }
+            else if(pilih == 3){
+                
+            }
+            else if(pilih == 4){
+                print();
+            }
+
+        }
+    }
+    static void enqu(){
+        System.out.println("Nama : ");
+        String a = sc.next();
+        enqueue(a);
+    }
+    static void enqueue(String nilai){
+        if(rear == maks){
+            System.out.println("Antrian penuh,tidak bisa menambah : "+nilai);
+            rear = 0;
+        }else{
+            data[rear]=nilai;
+            rear++;
+            at++;
+        }
+    }
+    static void dequeue(){
+        if(at == 0){
+            System.out.println("Tidak ada yang mengantri");
+            front = 0;
+        }else{
+            front++;
+            at--;
+        }
+    }
+    static void print(){
+        System.out.println("Nomor antrian : "+data[front]);
+        System.out.println("jumlah antrian : "+at);
+    }
+}
