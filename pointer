@@ -1,0 +1,24 @@
+package phyton;
+
+import java.util.Scanner;
+ class data {
+    String npm = " 51241241";
+    String x = "ryobi";
+    String nama(){
+        return x;
+    }
+    String nama(String x){
+        return x;
+    }
+    
+}
+public class q {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        data y = new data();
+        System.out.println("Nama : "+y.x);
+        System.out.println("Npm "+y.npm);
+        System.out.println("Nama : "+y.nama("suep"));
+    }
+
+}
