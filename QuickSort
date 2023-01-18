@@ -1,0 +1,48 @@
+public class x {
+ public static void main(String[] args) {
+    int array [] = {7,2,9,4,2,123,49,2,0,4,6,1};
+
+    System.out.println("Array Before Swap : ");
+    for (int i = 0; i < array.length; i++) {
+        System.out.print(array[i]+ " , ");
+    }
+    System.out.println(" ");
+    System.out.println("Array setelah Swap : ");
+    quicksort(array, 0, array.length-1);
+    printarray(array);
+
+ }  
+ public static void quicksort(int [] data , int Lindex , int Hindex){
+    if(Lindex >= Hindex){
+        return;
+    }
+    int pivot = data[Hindex];
+    int Lp = Lindex;
+    int Rp = Hindex;
+
+    while (Lp < Rp) {
+        while (data[Lp] <= pivot && Lp < Rp) {
+            Lp++;
+        }
+        while (data[Rp] >= pivot && Lp < Rp ) {
+            Rp--;
+        }
+        Swap(data, Lp, Rp);
+    }
+    Swap(data, Lp, Hindex);
+    quicksort(data, Lindex, Lp -1);
+    quicksort(data, Lp+1, Hindex);
+ }
+ public static void Swap(int [] data,int index1,int index2){
+        int temp = data[index1];
+        data[index1] = data[index2];
+        data[index2] = temp;
+ }
+ public static void printarray(int data []){
+    for (int i = 0; i < data.length; i++) {
+        System.out.print(data[i]+" , ");
+    }
+ }
+
+}
+   
