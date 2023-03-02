@@ -1,0 +1,65 @@
+CREATE DATABASE world;
+CREATE TABLE country(
+CODE CHAR(3) NOT NULL DEFAULT'',
+NAME CHAR(52)NOT NULL DEFAULT'',
+Continent ENUM('Asia','Europe','North America','Africa','Oceania','Antarctica','South America') NOT NULL DEFAULT 'Asia',
+Region CHAR (26) NOT NULL DEFAULT '',
+SurfaceArea FLOAT (10,2) NOT NULL DEFAULT '0.00',
+IndepYear SMALLINT (6) DEFAULT NULL,
+Population INT(16) NOT NULL DEFAULT '0',
+LifeExpectancy FLOAT (3,1) DEFAULT NULL,
+GNP FLOAT (10,2) DEFAULT NULL,
+GNPOld FLOAT (10,2) DEFAULT NULL,
+LocalName CHAR (45)NOT NULL DEFAULT'',
+GovermentForm CHAR(45) NOT NULL DEFAULT'',
+HeadOfState CHAR(60) DEFAULT NULL,
+Capital INT (11) DEFAULT NULL,
+Code2 CHAR (2) NOT NULL DEFAULT '',
+PRIMARY KEY (CODE)
+);
+
+
+CREATE TABLE city(
+ID INT (11) NOT NULL AUTO_INCREMENT,
+NAME CHAR (35) NOT NULL DEFAULT'',
+CountryCode CHAR (3) NOT NULL DEFAULT'',
+District CHAR(20) NOT NULL DEFAULT'',
+Population INT (11) NOT NULL DEFAULT '0',
+PRIMARY KEY (ID)
+);
+
+CREATE TABLE Countrylanguage(
+CountryCode CHAR (3) NOT NULL DEFAULT'',
+LANGUAGE CHAR (30) NOT NULL DEFAULT'',
+IsOfficial ENUM ('T','F') NOT NULL DEFAULT 'F',
+Percentage FLOAT (4,1) NOT NULL DEFAULT '0.0',
+PRIMARY KEY (CountryCode,LANGUAGE)
+);
+
+ALTER TABLE country DROP COLUMN Code2;
+
+ALTER TABLE country ADD Code2 CHAR (2) NOT NULL DEFAULT '';
+
+ALTER TABLE country CHANGE GovermentForm PoliticalSystem CHAR (45);
+
+ALTER TABLE country CHANGE HeadOfState HeadOfState VARCHAR (60);
+
+ALTER TABLE country ADD INDEX idx_region (region);
+
+CREATE TABLE peoples(
+	id_people INT(11)
+);
+DROP TABLE people;
+
+INSERT INTO country (CODE,NAME, Region,SurfaceArea,IndepYear,Population,
+		LifeExpectancy,GNP,GNPOld,LocalName,PoliticalSystem,HeadOfState,Capital)
+
+VALUE ('ID','Timor Leste','South East Asia','500000','2001','1179100','42.7',
+	'9462.00','2346.00','Timor','Republic','Xanana Gusmao','7962');
+
+
+SELECT * FROM country; 
+
+UPDATE country SET HeadOfState = 'SBY' , PoliticalSystem = 'Kingdom' WHERE CODE = 'TML';
+
+DELETE FROM country WHERE CODE = 'TML';
