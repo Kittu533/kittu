@@ -1,0 +1,63 @@
+class Mahasiswa{
+    String Nim;
+    String Nama;
+
+
+    Mahasiswa (String inputNama , String inputNim){
+        Nama = inputNama;
+        Nim = inputNim;
+        System.out.println(Nama);
+        System.out.println(Nim);
+    }
+    //METHOD 4
+    String sayHi(String message){
+        return message + "Juga , Nama saya daton";
+    }
+
+    //METHOD 3
+    String getNama(){
+        return this.Nama;
+    }
+    String getNim(){
+        return this.Nim;
+    }
+
+    //METHOD 2
+    void setNama (String nama ){
+        this.Nama = nama;
+    }
+    void setNim (String nim){
+        this.Nim = nim;
+    }
+
+    //METHOD 1
+    void show (){
+        System.out.println("Nama : " + this.Nama);
+        System.out.println("Nim : " + this.Nim);
+
+    }
+}
+
+public class latihanOOP1 {
+    public static void main(String[] args) {
+        Mahasiswa mahasiswa1 = new Mahasiswa("daton","123123");
+        // Mahasiswa mahasiswa1 = new Mahasiswa("ef","12344");
+        //  Mahasiswa mahasiswa2 = new Mahasiswa("weggf","1234234");
+
+        //PEMANGILAN METHOD 1
+        mahasiswa1.show();
+        
+        //PEMANGGILAN METHOD 2
+        mahasiswa1.setNama("Jupri");
+        mahasiswa1.setNim("243421");
+        mahasiswa1.show();
+
+        //PEMANGILAN METHOD 3
+        System.out.println(mahasiswa1.getNama());
+        System.out.println(mahasiswa1.getNim());
+
+        //PEMANGILAN METHOD 4
+        String data = mahasiswa1.sayHi("Bro");
+        System.out.println(data);
+    }
+}
